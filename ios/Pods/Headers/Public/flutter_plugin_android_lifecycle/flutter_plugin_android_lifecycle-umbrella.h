@@ -1,0 +1,1 @@
+../../../Target Support Files/flutter_plugin_android_lifecycle/flutter_plugin_android_lifecycle-umbrella.h

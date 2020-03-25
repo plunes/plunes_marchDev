@@ -1,0 +1,1 @@
+../../../../.symlinks/plugins/flutter_plugin_android_lifecycle/ios/Classes/FlutterAndroidLifecyclePlugin.h
