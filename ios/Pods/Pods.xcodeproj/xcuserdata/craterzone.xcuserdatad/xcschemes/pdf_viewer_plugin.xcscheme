@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2139D0BCA53CF2B80722E014F1C36860"
-               BuildableName = "libpdf_viewer_plugin.a"
+               BuildableName = "pdf_viewer_plugin.framework"
                BlueprintName = "pdf_viewer_plugin"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

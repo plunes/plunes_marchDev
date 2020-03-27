@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B51E4F66CC7B565B582B2DD8C9C86AC3"
-               BuildableName = "libflutter_keyboard_visibility.a"
+               BuildableName = "flutter_keyboard_visibility.framework"
                BlueprintName = "flutter_keyboard_visibility"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

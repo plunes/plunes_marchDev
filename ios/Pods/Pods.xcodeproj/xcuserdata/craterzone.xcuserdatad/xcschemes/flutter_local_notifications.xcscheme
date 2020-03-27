@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F64AA263B9D7877A7D58823DEF7F113B"
-               BuildableName = "libflutter_local_notifications.a"
+               BuildableName = "flutter_local_notifications.framework"
                BlueprintName = "flutter_local_notifications"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

@@ -1,4 +1,4 @@
-module flutter_plugin_android_lifecycle {
+framework module flutter_plugin_android_lifecycle {
   umbrella header "flutter_plugin_android_lifecycle-umbrella.h"
 
   export *

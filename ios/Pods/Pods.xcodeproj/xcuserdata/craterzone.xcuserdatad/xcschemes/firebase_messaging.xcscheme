@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B92347C3E503ADBA2F0EF79DE5320B2D"
-               BuildableName = "libfirebase_messaging.a"
+               BuildableName = "firebase_messaging.framework"
                BlueprintName = "firebase_messaging"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

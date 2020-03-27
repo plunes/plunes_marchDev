@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A47785EC1549E51E61B1C4CB35A8EF3A"
-               BuildableName = "libfile_picker.a"
+               BuildableName = "file_picker.framework"
                BlueprintName = "file_picker"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

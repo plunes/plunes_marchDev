@@ -18,7 +18,6 @@ import 'package:plunes/start_streen/HomeScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 
-
 class NotificationScreen extends StatefulWidget {
   static const tag = '/notificationscreen';
 
@@ -27,16 +26,13 @@ class NotificationScreen extends StatefulWidget {
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
-
   String user_token = "";
   String user_id = "";
-
 
   bool progress = true;
   List<PostsData> notification_lists = new List();
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
 
   getSharedPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -51,11 +47,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
     get_data();
   }
 
-
-
-  void get_data() async{
-
-    AllNotificationsPost allNotificationsPost = await all_notifications(user_token).catchError((error){
+  void get_data() async {
+    AllNotificationsPost allNotificationsPost =
+        await all_notifications(user_token).catchError((error) {
       config.Config.showLongToast("Something went wrong!");
       print(error);
       setState(() {
@@ -63,19 +57,18 @@ class _NotificationScreenState extends State<NotificationScreen> {
       });
     });
 
-
-    for(int i =0; i< allNotificationsPost.posts.length; i++){
+    for (int i = 0; i < allNotificationsPost.posts.length; i++) {
       notification_lists.add(allNotificationsPost.posts[i]);
     }
 
-     setState(() {
-       if(allNotificationsPost.success){
+    setState(() {
+      if (allNotificationsPost.success) {
         progress = false;
-       }else{
-         config.Config.showInSnackBar(_scaffoldKey, allNotificationsPost.message, Colors.red);
-       }
-     });
-
+      } else {
+        config.Config.showInSnackBar(
+            _scaffoldKey, allNotificationsPost.message, Colors.red);
+      }
+    });
   }
 
   @override
@@ -84,135 +77,165 @@ class _NotificationScreenState extends State<NotificationScreen> {
     super.initState();
   }
 
-
-  Widget notifications(BuildContext context){
-    if(notification_lists.length ==0){
+  Widget notifications(BuildContext context) {
+    if (notification_lists.length == 0) {
       return Center(
         child: Text("No Notifications Yet"),
       );
     }
-    return  Column(
+    return Column(
       children: <Widget>[
         Expanded(
           child: Container(
               child: ListView.builder(
-                itemBuilder: (context, index) {
-                  String  initial_name = notification_lists[index].senderName!=''? config.Config.get_initial_name(notification_lists[index].senderName):'';
-                  return Container(
-                    child: InkWell(
-                      onTap: () {
-                        if(notification_lists[index].Notificationtype == 'reply' || notification_lists[index].Notificationtype == 'enquiry'){
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomeScreen(screen: "consult")));
-                        }else if(notification_lists[index].Notificationtype == 'solution' || notification_lists[index].Notificationtype == 'price'){
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => BiddingActivity(screen: 0)));
-                        }else if(notification_lists[index].Notificationtype == 'booking'){
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Appointments(
-                                  screen: 0,
-                                ),
-                              ));
-                        }else if(notification_lists[index].Notificationtype == 'plockr'){
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomeScreen(screen: "plocker"),
-                              ));
-                        }
-                      },
-                      child: Column(
-                        children: <Widget>[
-                          Padding(
+            itemBuilder: (context, index) {
+              String initial_name = notification_lists[index].senderName != ''
+                  ? config.Config.get_initial_name(
+                      notification_lists[index].senderName)
+                  : '';
+              return Container(
+                child: InkWell(
+                  onTap: () {
+                    if (notification_lists[index].Notificationtype == 'reply' ||
+                        notification_lists[index].Notificationtype ==
+                            'enquiry') {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  HomeScreen(screen: "consult")));
+                    } else if (notification_lists[index].Notificationtype ==
+                            'solution' ||
+                        notification_lists[index].Notificationtype == 'price') {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  BiddingActivity(screen: 0)));
+                    } else if (notification_lists[index].Notificationtype ==
+                        'booking') {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Appointments(
+                              screen: 0,
+                            ),
+                          ));
+                    } else if (notification_lists[index].Notificationtype ==
+                        'plockr') {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(screen: "plocker"),
+                          ));
+                    }
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Row(
-                                  children: <Widget>[
-                                    Container(
-                                      margin: EdgeInsets.only(bottom: 0, right: 10),
-                                     child: notification_lists[index].Senderimageurl !='' && !notification_lists[index].Senderimageurl.contains("default") ? CircleAvatar(
-                                        radius: 20,
-                                        backgroundImage: NetworkImage(notification_lists[index].Senderimageurl),
-                                      ): Container(
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 0, right: 10),
+                                  child: notification_lists[index]
+                                                  .Senderimageurl !=
+                                              '' &&
+                                          !notification_lists[index]
+                                              .Senderimageurl
+                                              .contains("default")
+                                      ? CircleAvatar(
+                                          radius: 20,
+                                          backgroundImage: NetworkImage(
+                                              notification_lists[index]
+                                                  .Senderimageurl),
+                                        )
+                                      : Container(
                                           height: 40,
                                           width: 40,
                                           alignment: Alignment.center,
-                                          child:
-                                          Text(initial_name.toUpperCase(),
-                                            style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.normal)),
-
-                                          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)),
-                                            gradient: new LinearGradient(
-                                                colors: [Color(0xffababab), Color(0xff686868)],
-                                                begin: FractionalOffset.topCenter,
-                                                end: FractionalOffset.bottomCenter,
-                                                stops: [0.0, 1.0],
-                                                tileMode: TileMode.clamp
-                                            ),) ),
-                                    ),
-                                    Expanded(child: Container(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text(notification_lists[index].senderName,
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w500
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-
-                                          Container(
-                                            width: 200,
-                                            child: Text(
-                                              notification_lists[index].notification,
-                                              maxLines: null,
+                                          child: Text(
+                                              initial_name.toUpperCase(),
                                               style: TextStyle(
-                                                  color: Colors.grey,
-                                                  fontSize: 12),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),),
-                                    Container(
-                                      margin: EdgeInsets.only(bottom: 20),
-                                      alignment: Alignment.topRight,
-                                      child: Text(config.Config.get_duration(notification_lists[index].Currtime) ,
-                                        style: TextStyle(
-                                            fontSize: 13),
-                                      ),
-                                    ),
-
-
-                                  ],
+                                                  color: Colors.white,
+                                                  fontSize: 18,
+                                                  fontWeight:
+                                                      FontWeight.normal)),
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20)),
+                                            gradient: new LinearGradient(
+                                                colors: [
+                                                  Color(0xffababab),
+                                                  Color(0xff686868)
+                                                ],
+                                                begin:
+                                                    FractionalOffset.topCenter,
+                                                end: FractionalOffset
+                                                    .bottomCenter,
+                                                stops: [0.0, 1.0],
+                                                tileMode: TileMode.clamp),
+                                          )),
                                 ),
-                              ),
+                                Expanded(
+                                  child: Container(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text(
+                                          notification_lists[index].senderName,
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Container(
+                                          width: 200,
+                                          child: Text(
+                                            notification_lists[index]
+                                                .notification,
+                                            maxLines: null,
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 12),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 20),
+                                  alignment: Alignment.topRight,
+                                  child: Text(
+                                    config.Config.get_duration(
+                                        notification_lists[index].Currtime),
+                                    style: TextStyle(fontSize: 13),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Container(
-                            height: 0.3,
-                            color: Colors.grey,
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  );
-                },
-                itemCount: notification_lists.length,
-              )),
+                      Container(
+                        height: 0.3,
+                        color: Colors.grey,
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+            itemCount: notification_lists.length,
+          )),
         ),
       ],
     );
@@ -265,7 +288,6 @@ class _NotificationScreenState extends State<NotificationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: progress? loading: notifications(context)
-    );
+        body: progress ? loading : notifications(context));
   }
 }

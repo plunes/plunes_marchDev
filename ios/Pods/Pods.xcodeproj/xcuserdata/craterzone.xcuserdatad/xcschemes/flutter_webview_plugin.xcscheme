@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "66C626531000175ABFAB7BF5DC3C1E7D"
-               BuildableName = "libflutter_webview_plugin.a"
+               BuildableName = "flutter_webview_plugin.framework"
                BlueprintName = "flutter_webview_plugin"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

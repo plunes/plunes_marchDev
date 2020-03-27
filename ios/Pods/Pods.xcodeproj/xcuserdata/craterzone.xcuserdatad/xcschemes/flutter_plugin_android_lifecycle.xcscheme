@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4283AE36CD707522D8A33E4FBDE40943"
-               BuildableName = "libflutter_plugin_android_lifecycle.a"
+               BuildableName = "flutter_plugin_android_lifecycle.framework"
                BlueprintName = "flutter_plugin_android_lifecycle"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

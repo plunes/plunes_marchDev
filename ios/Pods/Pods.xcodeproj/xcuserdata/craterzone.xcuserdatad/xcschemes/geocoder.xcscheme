@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B78EB6C3DEF8DC5CFA552A40A1726955"
-               BuildableName = "libgeocoder.a"
+               BuildableName = "geocoder.framework"
                BlueprintName = "geocoder"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

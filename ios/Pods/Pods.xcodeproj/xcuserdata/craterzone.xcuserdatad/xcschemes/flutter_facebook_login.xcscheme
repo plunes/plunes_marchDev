@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8579BC32D417B4E26DACDA9405CDE22E"
-               BuildableName = "libflutter_facebook_login.a"
+               BuildableName = "flutter_facebook_login.framework"
                BlueprintName = "flutter_facebook_login"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

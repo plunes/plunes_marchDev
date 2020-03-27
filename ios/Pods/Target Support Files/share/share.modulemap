@@ -1,4 +1,4 @@
-module share {
+framework module share {
   umbrella header "share-umbrella.h"
 
   export *
